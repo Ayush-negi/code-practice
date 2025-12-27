@@ -1,0 +1,61 @@
+/*
+
+
+Without using media queries do the following things:
+1- For desktop sizes, i.e. window.innerWidth > 1024, make the background of above div 'red'
+2- For tablet sizes, i.e. window.innerWidth > 600 & <= 1024, make the background of above div 'blue' 3- For mobile
+    sizes, i.e. window.innerWidth <=600, make the background of above div 'green' */ <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                margin: 0;
+            }
+
+            div {
+                height: 100vh;
+                width: 100vw;
+                background: red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div></div>
+        <script>
+            // Write your solution here ================================
+            // 1. Get the div element (the one whose background we want to change)
+            let myDiv = document.querySelector("div");
+
+            // 2. Create a function that checks screen size and changes color
+            function updateBackgroundColor() {
+                let screenWidth = window.innerWidth;
+
+                if (screenWidth > 1024) {
+                    // Desktop: red
+                    myDiv.style.backgroundColor = "red";
+                }
+                else if (screenWidth > 600) {
+                    // Tablet: blue (601px to 1024px)
+                    myDiv.style.backgroundColor = "blue";
+                }
+                else {
+                    // Mobile: green (0px to 600px)
+                    myDiv.style.backgroundColor = "green";
+                }
+            }
+
+            // 3. Run the function once when page loads (initial color)
+            updateBackgroundColor();
+
+            // 4. Listen for window resize and update color
+            window.addEventListener("resize", updateBackgroundColor);
+        </script>
+    </body>
+
+    </html>
